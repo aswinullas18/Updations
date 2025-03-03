@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASA CAFE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Logo.png" alt="Logo" class="logo">
+            </a>
+            <ul class="navbar-nav"> 
+                <li>
+                    <a href="#" id="cart-icon" onclick="scrollToCart()">
+                        <div style="position: relative; display: inline-block;">
+                            🛒 <span id="cart-count" style="position: absolute; top: -10px; right: -10px;">0</span>
+                        </div>
+                    </a>
+                </li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about-section">About</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Title below the navbar but above the content -->
+    <div class="menu-title">
+        <h1>Menu</h1>
+    </div>
+
+    <!-- Buttons for each category -->
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('hot-drinks-items')">HOT DRINKS</button>
+        <div id="hot-drinks-items" class="items-container">
+            <div class="item hot-drinks-item">Nescafe 
+                <button class="quantity-btn" onclick="updateCart('Nescafe', -1)">-</button>
+                <span id="Nescafe-count">0</span>
+                <button class="quantity-btn" onclick="updateCart('Nescafe', 1)">+</button>
+
+                <span id="Nescafe-count">0</span>
+                <button onclick="updateCart('Nescafe', 1)">+</button>
+
+            </div><br>
+            <div class="item hot-drinks-item">Premium Badam Milk
+                <button class="quantity-btn" onclick="updateCart('Premium Badam Milk', -1)">-</button>
+                <span id="Premium Badam Milk-count">0</span>
+                <button class="quantity-btn" onclick="updateCart('Premium Badam Milk', 1)">+</button>
+
+            </div><br>
+            <div class="item hot-drinks-item">Cappuccino
+                <button class="quantity-btn" onclick="updateCart('Cappuccino', -1)">-</button>
+                <span id="Cappuccino-count">0</span>
+                <button class="quantity-btn" onclick="updateCart('Cappuccino', 1)">+</button>
+
+            </div><br>
+            <div class="item hot-drinks-item">Cappuccino (Hazelnut/French Vanilla)
+                <button class="quantity-btn" onclick="updateCart('Cappuccino (Hazelnut/French Vanilla)', -1)">-</button>
+                <span id="Cappuccino (Hazelnut/French Vanilla)-count">0</span>
+                <button class="quantity-btn" onclick="updateCart('Cappuccino (Hazelnut/French Vanilla)', 1)">+</button>
+
+            </div><br>
+            <div class="item hot-drinks-item">Hot Chocolate
+                <button class="quantity-btn" onclick="updateCart('Hot Chocolate', -1)">-</button>
+                <span id="Hot Chocolate-count">0</span>
+                <button class="quantity-btn" onclick="updateCart('Hot Chocolate', 1)">+</button>
+
+            </div><br>
+            <div class="item hot-drinks-item">Hot Chocolate (Hazelnut/French Vanilla)
+                <button class="quantity-btn" onclick="updateCart('Hot Chocolate (Hazelnut/French Vanilla)', -1)">-</button>
+                <span id="Hot Chocolate (Hazelnut/French Vanilla)-count">0</span>
+                <button class="quantity-btn" onclick="updateCart('Hot Chocolate (Hazelnut/French Vanilla)', 1)">+</button>
+
+            </div><br>
+            <div class="item hot-drinks-item">Mocha
+                <button class="quantity-btn" onclick="updateCart('Mocha', -1)">-</button>
+                <span id="Mocha-count">0</span>
+                <button class="quantity-btn" onclick="updateCart('Mocha', 1)">+</button>
+
+            </div><br>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('cold-drinks-items')">COLD DRINKS</button>
+        <div id="cold-drinks-items" class="items-container">
+            <div class="item cold-drinks-item">Premium Cold Coffee
+                <button onclick="updateCart('Premium Cold Coffee', 1)">+</button>
+                <span id="Premium Cold Coffee-count">0</span>
+                <button onclick="updateCart('Premium Cold Coffee', -1)">-</button>
+            </div><br>
+            <div class="item cold-drinks-item">Cold Coffee (Hazelnut/French Vanilla)
+                <button onclick="updateCart('Cold Coffee (Hazelnut/French Vanilla)', 1)">+</button>
+                <span id="Cold Coffee (Hazelnut/French Vanilla)-count">0</span>
+                <button onclick="updateCart('Cold Coffee (Hazelnut/French Vanilla)', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('frappuccino-items')">FRAPPUCCINO</button>
+        <div id="frappuccino-items" class="items-container">
+            <div class="item frappuccino-item">Chocolate Oreo Frappe
+                <button onclick="updateCart('Chocolate Oreo Frappe', 1)">+</button>
+                <span id="Chocolate Oreo Frappe-count">0</span>
+                <button onclick="updateCart('Chocolate Oreo Frappe', -1)">-</button>
+            </div><br>
+            <div class="item frappuccino-item">American Mud Pie
+                <button onclick="updateCart('American Mud Pie', 1)">+</button>
+                <span id="American Mud Pie-count">0</span>
+                <button onclick="updateCart('American Mud Pie', -1)">-</button>
+            </div><br>
+            <div class="item frappuccino-item">Mocha Frappe
+                <button onclick="updateCart('Mocha Frappe', 1)">+</button>
+                <span id="Mocha Frappe-count">0</span>
+                <button onclick="updateCart('Mocha Frappe', -1)">-</button>
+            </div><br>
+            <div class="item frappuccino-item">Lotus Biscoff Frappe
+                <button onclick="updateCart('Lotus Biscoff Frappe', 1)">+</button>
+                <span id="Lotus Biscoff Frappe-count">0</span>
+                <button onclick="updateCart('Lotus Biscoff Frappe', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('premium-shakes-items')">PREMIUM SHAKES</button>
+        <div id="premium-shakes-items" class="items-container">
+            <div class="item premium-shakes-item">Chocolate Shake
+                <button onclick="updateCart('Chocolate Shake', 1)">+</button>
+                <span id="Chocolate Shake-count">0</span>
+                <button onclick="updateCart('Chocolate Shake', -1)">-</button>
+            </div><br>
+            <div class="item premium-shakes-item">Strawberry Shake
+                <button onclick="updateCart('Strawberry Shake', 1)">+</button>
+                <span id="Strawberry Shake-count">0</span>
+                <button onclick="updateCart('Strawberry Shake', -1)">-</button>
+            </div><br>
+            <div class="item premium-shakes-item">Kitkat Shake
+                <button onclick="updateCart('Kitkat Shake', 1)">+</button>
+                <span id="Kitkat Shake-count">0</span>
+                <button onclick="updateCart('Kitkat Shake', -1)">-</button>
+            </div><br>
+            <div class="item premium-shakes-item">Apple Shake
+                <button onclick="updateCart('Apple Shake', 1)">+</button>
+                <span id="Apple Shake-count">0</span>
+                <button onclick="updateCart('Apple Shake', -1)">-</button>
+            </div><br>
+            <div class="item premium-shakes-item">Banana Shake
+                <button onclick="updateCart('Banana Shake', 1)">+</button>
+                <span id="Banana Shake-count">0</span>
+                <button onclick="updateCart('Banana Shake', -1)">-</button>
+            </div><br>
+            <div class="item premium-shakes-item">Blueberry Shake
+                <button onclick="updateCart('Blueberry Shake', 1)">+</button>
+                <span id="Blueberry Shake-count">0</span>
+                <button onclick="updateCart('Blueberry Shake', -1)">-</button>
+            </div><br>
+            <div class="item premium-shakes-item">Dry Fruits Shake
+                <button onclick="updateCart('Dry Fruits Shake', 1)">+</button>
+                <span id="Dry Fruits Shake-count">0</span>
+                <button onclick="updateCart('Dry Fruits Shake', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('mojito-items')">MOJITO</button>
+        <div id="mojito-items" class="items-container">
+            <div class="item mojito-item">Orange
+                <button onclick="updateCart('Orange', 1)">+</button>
+                <span id="Orange-count">0</span>
+                <button onclick="updateCart('Orange', -1)">-</button>
+            </div><br>
+            <div class="item mojito-item">Blueberry
+                <button onclick="updateCart('Blueberry', 1)">+</button>
+                <span id="Blueberry-count">0</span>
+                <button onclick="updateCart('Blueberry', -1)">-</button>
+            </div><br>
+            <div class="item mojito-item">Strawberry
+                <button onclick="updateCart('Strawberry', 1)">+</button>
+                <span id="Strawberry-count">0</span>
+                <button onclick="updateCart('Strawberry', -1)">-</button>
+            </div><br>
+            <div class="item mojito-item">Green Apple
+                <button onclick="updateCart('Green Apple', 1)">+</button>
+                <span id="Green Apple-count">0</span>
+                <button onclick="updateCart('Green Apple', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('kerala-special-items')">KERALA SPECIAL</button>
+        <div id="kerala-special-items" class="items-container">
+            <div class="item kerala-special-item">Sarbath
+                <button onclick="updateCart('Sarbath', 1)">+</button>
+                <span id="Sarbath-count">0</span>
+                <button onclick="updateCart('Sarbath', -1)">-</button>
+            </div><br>
+            <div class="item kerala-special-item">Soda Sarbath
+                <button onclick="updateCart('Soda Sarbath', 1)">+</button>
+                <span id="Soda Sarbath-count">0</span>
+                <button onclick="updateCart('Soda Sarbath', -1)">-</button>
+            </div><br>
+            <div class="item kerala-special-item">Lime Sarbath
+                <button onclick="updateCart('Lime Sarbath', 1)">+</button>
+                <span id="Lime Sarbath-count">0</span>
+                <button onclick="updateCart('Lime Sarbath', -1)">-</button>
+            </div><br>
+            <div class="item kerala-special-item">Milk Sarbath
+                <button onclick="updateCart('Milk Sarbath', 1)">+</button>
+                <span id="Milk Sarbath-count">0</span>
+                <button onclick="updateCart('Milk Sarbath', -1)">-</button>
+            </div><br>
+            <div class="item kerala-special-item">Normal Avil Milk
+                <button onclick="updateCart('Normal Avil Milk', 1)">+</button>
+                <span id="Normal Avil Milk-count">0</span>
+                <button onclick="updateCart('Normal Avil Milk', -1)">-</button>
+            </div><br>
+            <div class="item kerala-special-item">Special Avil Milk
+                <button onclick="updateCart('Special Avil Milk', 1)">+</button>
+                <span id="Special Avil Milk-count">0</span>
+                <button onclick="updateCart('Special Avil Milk', -1)">-</button>
+            </div><br>
+            <div class="item kerala-special-item">Royal Avil Milk
+                <button onclick="updateCart('Royal Avil Milk', 1)">+</button>
+                <span id="Royal Avil Milk-count">0</span>
+                <button onclick="updateCart('Royal Avil Milk', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('pastries-items')">PASTRIES</button>
+        <div id="pastries-items" class="items-container">
+            <div class="item pastries-item">Chocolate Cheese Cake
+                <button onclick="updateCart('Chocolate Cheese Cake', 1)">+</button>
+                <span id="Chocolate Cheese Cake-count">0</span>
+                <button onclick="updateCart('Chocolate Cheese Cake', -1)">-</button>
+            </div><br>
+            <div class="item pastries-item">Blueberry Cheese Cake
+                <button onclick="updateCart('Blueberry Cheese Cake', 1)">+</button>
+                <span id="Blueberry Cheese Cake-count">0</span>
+                <button onclick="updateCart('Blueberry Cheese Cake', -1)">-</button>
+            </div><br>
+            <div class="item pastries-item">Strawberry Cheese Cake
+                <button onclick="updateCart('Strawberry Cheese Cake', 1)">+</button>
+                <span id="Strawberry Cheese Cake-count">0</span>
+                <button onclick="updateCart('Strawberry Cheese Cake', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('fries-items')">FRIES</button>
+        <div id="fries-items" class="items-container">
+            <div class="item fries-item">French Fries
+                <button onclick="updateCart('French Fries', 1)">+</button>
+                <span id="French Fries-count">0</span>
+                <button onclick="updateCart('French Fries', -1)">-</button>
+            </div><br>
+            <div class="item fries-item">Peri Peri Fries
+                <button onclick="updateCart('Peri Peri Fries', 1)">+</button>
+                <span id="Peri Peri Fries-count">0</span>
+                <button onclick="updateCart('Peri Peri Fries', -1)">-</button>
+            </div><br>
+            <div class="item fries-item">Veg Nuggets
+                <button onclick="updateCart('Veg Nuggets', 1)">+</button>
+                <span id="Veg Nuggets-count">0</span>
+                <button onclick="updateCart('Veg Nuggets', -1)">-</button>
+            </div><br>
+            <div class="item fries-item">Chicken Nuggets
+                <button onclick="updateCart('Chicken Nuggets', 1)">+</button>
+                <span id="Chicken Nuggets-count">0</span>
+                <button onclick="updateCart('Chicken Nuggets', -1)">-</button>
+            </div><br>
+            <div class="item fries-item">Chilly Cheesy Nuggets
+                <button onclick="updateCart('Chilly Cheesy Nuggets', 1)">+</button>
+                <span id="Chilly Cheesy Nuggets-count">0</span>
+                <button onclick="updateCart('Chilly Cheesy Nuggets', -1)">-</button>
+            </div><br>
+            <div class="item fries-item">Chilli Garlic Potato Pops
+                <button onclick="updateCart('Chilli Garlic Potato Pops', 1)">+</button>
+                <span id="Chilli Garlic Potato Pops-count">0</span>
+                <button onclick="updateCart('Chilli Garlic Potato Pops', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('snacks-items')">SNACKS</button>
+        <div id="snacks-items" class="items-container">
+            <div class="item snacks-item">Vada
+                <button onclick="updateCart('Vada', 1)">+</button>
+                <span id="Vada-count">0</span>
+                <button onclick="updateCart('Vada', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Pazhampori
+                <button onclick="updateCart('Pazhampori', 1)">+</button>
+                <span id="Pazhampori-count">0</span>
+                <button onclick="updateCart('Pazhampori', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Pazham Nirachath (Stuffed Banana)
+                <button onclick="updateCart('Pazham Nirachath (Stuffed Banana)', 1)">+</button>
+                <span id="Pazham Nirachath (Stuffed Banana)-count">0</span>
+                <button onclick="updateCart('Pazham Nirachath (Stuffed Banana)', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Masala / Aalu Bonda
+                <button onclick="updateCart('Masala / Aalu Bonda', 1)">+</button>
+                <span id="Masala / Aalu Bonda-count">0</span>
+                <button onclick="updateCart('Masala / Aalu Bonda', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Bajji
+                <button onclick="updateCart('Bajji', 1)">+</button>
+                <span id="Bajji-count">0</span>
+                <button onclick="updateCart('Bajji', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Egg Bajji
+                <button onclick="updateCart('Egg Bajji', 1)">+</button>
+                <span id="Egg Bajji-count">0</span>
+                <button onclick="updateCart('Egg Bajji', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Veg Samosa
+                <button onclick="updateCart('Veg Samosa', 1)">+</button>
+                <span id="Veg Samosa-count">0</span>
+                <button onclick="updateCart('Veg Samosa', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Chicken Samosa
+                <button onclick="updateCart('Chicken Samosa', 1)">+</button>
+                <span id="Chicken Samosa-count">0</span>
+                <button onclick="updateCart('Chicken Samosa', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Kerala Special Unnakkaya
+                <button onclick="updateCart('Kerala Special Unnakkaya', 1)">+</button>
+                <span id="Kerala Special Unnakkaya-count">0</span>
+                <button onclick="updateCart('Kerala Special Unnakkaya', -1)">-</button>
+            </div><br>
+            <div class="item snacks-item">Speciall Chattipathiri Chicken
+                <button onclick="updateCart('Speciall Chattipathiri Chicken', 1)">+</button>
+                <span id="Speciall Chattipathiri Chicken-count">0</span>
+                <button onclick="updateCart('Speciall Chattipathiri Chicken', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="toggle-button" onclick="toggleItems('other-food-items')">OTHER FOOD ITEMS</button>
+        <div id="other-food-items" class="items-container">
+            <div class="item other-food-item">Veg Maggie
+                <button onclick="updateCart('Veg Maggie', 1)">+</button>
+                <span id="Veg Maggie-count">0</span>
+                <button onclick="updateCart('Veg Maggie', -1)">-</button>
+            </div><br>
+            <div class="item other-food-item">Egg Maggie
+                <button onclick="updateCart('Egg Maggie', 1)">+</button>
+                <span id="Egg Maggie-count">0</span>
+                <button onclick="updateCart('Egg Maggie', -1)">-</button>
+            </div><br>
+            <div class="item other-food-item">Corn Maggie
+                <button onclick="updateCart('Corn Maggie', 1)">+</button>
+                <span id="Corn Maggie-count">0</span>
+                <button onclick="updateCart('Corn Maggie', -1)">-</button>
+            </div><br>
+            <div class="item other-food-item">Chicken Maggie
+                <button onclick="updateCart('Chicken Maggie', 1)">+</button>
+                <span id="Chicken Maggie-count">0</span>
+                <button onclick="updateCart('Chicken Maggie', -1)">-</button>
+            </div><br>
+            <div class="item other-food-item">Bread Omelette
+                <button onclick="updateCart('Bread Omelette', 1)">+</button>
+                <span id="Bread Omelette-count">0</span>
+                <button onclick="updateCart('Bread Omelette', -1)">-</button>
+            </div><br>
+            <div class="item other-food-item">Bread Pocket (Egg)
+                <button onclick="updateCart('Bread Pocket (Egg)', 1)">+</button>
+                <span id="Bread Pocket (Egg)-count">0</span>
+                <button onclick="updateCart('Bread Pocket (Egg)', -1)">-</button>
+            </div><br>
+            <div class="item other-food-item">Bread Pocket (Chicken)
+                <button onclick="updateCart('Bread Pocket (Chicken)', 1)">+</button>
+                <span id="Bread Pocket (Chicken)-count">0</span>
+                <button onclick="updateCart('Bread Pocket (Chicken)', -1)">-</button>
+            </div><br>
+            <div class="item other-food-item">White Sauce Pasta
+                <button onclick="updateCart('White Sauce Pasta', 1)">+</button>
+                <span id="White Sauce Pasta-count">0</span>
+                <button onclick="updateCart('White Sauce Pasta', -1)">-</button>
+            </div><br>
+            <div class="item other-food-item">Alfredo Pasta
+                <button onclick="updateCart('Alfredo Pasta', 1)">+</button>
+                <span id="Alfredo Pasta-count">0</span>
+                <button onclick="updateCart('Alfredo Pasta', -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <button id="checkout-btn" onclick="openCheckoutModal()">Checkout</button>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            <h2>Checkout</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="table-number">Table Number:</label>
+            <input type="text" id="table-number" required>
+            <button id="submit-checkout" onclick="submitCheckout()">Submit</button>
+        </div>
+    </div>
+
+
+    <!-- About Section -->
+    <div id="about-section" class="about-section">
+        <h2>About Us</h2>
+        <p>Welcome to <strong>Casa Cafe</strong>. We offer a variety of drinks and food items for you to enjoy.</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact-section" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Follow us on WhatsApp / Instagram:</p>
+        <div class="social-icons">
+            <a href="https://wa.me/918129553200" target="_blank">WhatsApp</a>
+            <a href="https://instagram.com/_casa_cafe" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Casa Cafe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
