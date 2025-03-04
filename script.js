@@ -112,5 +112,24 @@ document.getElementById('place-order-btn').addEventListener('click', function() 
 
     const message = `Order Details:\nName: ${customerName}\nTable Number: ${tableNumber}\nItems: ${cartItemsList}`;
     const whatsappLink = `https://wa.me/918129553200?text=${encodeURIComponent(message)}`;
-    window.open(whatsappLink, '_blank');
+
+    // Create an anchor element to trigger the WhatsApp link
+    const link = document.createElement('a');
+    link.href = whatsappLink;
+    link.target = '_blank'; // Open in a new tab
+    link.style.display = 'none'; // Hide the link
+
+    // Append the link to the body and trigger a click
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Remove the link after click
+
+    //Clear cart and input fields
+    cartItems = {};
+    cartCount = 0;
+    updateCartUI();
+    document.getElementById('customer-name').value = '';
+    document.getElementById('table-number').value = '';
+
+    alert("Order Placed Successfully!");
 });
