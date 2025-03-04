@@ -1,0 +1,258 @@
+/* styles.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+}
+
+/* Responsive Navbar */
+.navbar {
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar-nav a:hover {
+    background-color: #eee;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar-nav.show {
+        display: block;
+    }
+
+    .navbar-nav li {
+        display: block;
+        margin: 5px 0;
+    }
+}
+
+h1 {
+    text-align: center;
+    margin: 80px 0 20px 0; /* Adjusted top margin for navbar space */
+}
+
+.menu {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.button.container {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.category-header {
+    background-color: #eee;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.category-content {
+    padding: 10px;
+    display: none;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.btn-box {
+    display: flex;
+    align-items: center;
+}
+
+.btn-box button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* Cart Icon */
+#cart-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 101;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#cart-icon span {
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 50%;
+    font-size: 0.8em;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+/* Cart Box Position Change */
+#cart-box {
+    position: absolute; /* Change to absolute positioning */
+    top: 50%; /* Position vertically in the middle of the viewport */
+    right: 20px; /* Adjust as needed */
+    transform: translateY(-50%); /* Center the cart vertically */
+    width: 300px; /* Adjust as needed */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 100;
+    /* Remove transform: translateY(110%); and transition */
+}
+
+/* Ensure cart box is visible */
+#cart-box.show {
+    /* Remove transform: translateY(0); */
+}
+
+
+#cart-box h3 {
+    margin-top: 0;
+}
+
+#cart-box input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#cart-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+#cart-box ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cart-box ul li:last-child {
+    border-bottom: none;
+}
+
+#cart-box ul li button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#place-order-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.about-section,
+.contact-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.about-section h2,
+.contact-section h2 {
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
