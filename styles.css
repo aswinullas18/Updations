@@ -1,12 +1,10 @@
-/* styles.css */
-
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     background-color: #36013f;
-    padding-top: 350px; /* Adjusted padding-top to accommodate the navbar and menu */
+    padding-top: 350px;
     color: #DDBC91;
 }
 
@@ -28,24 +26,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed; /* Make the navbar fixed */
-    top: 0; /* Stick it to the top */
-    z-index: 1000; /* Ensure it's on top */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
 body {
-    padding-top: 300px; /* Adjust this value based on your navbar's height */
+    padding-top: 300px;
 }
 
 .navbar-brand .logo {
-    max-width: 250px;
+    width: 250px;
     margin-bottom: 10px;
     transition: max-width 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
     body {
-        padding-top: 100px; /* adjust this value based on mobile navbar height */
+        padding-top: 100px;
     }
 
     .navbar-brand .logo {
@@ -53,6 +51,7 @@ body {
         margin-bottom: 5px;
     }
 }
+
 .navbar-nav {
     display: flex;
     list-style: none;
@@ -112,7 +111,7 @@ body {
     }
 
     body {
-        padding-top: 60px; /* Adjusted for mobile navbar */
+        padding-top: 60px;
     }
 }
 
@@ -246,9 +245,11 @@ h1 {
     top: -5px;
     right: -5px;
 }
+
 body.cart-open {
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
 }
+
 #cart-box {
     position: fixed;
     top: 50%;
@@ -288,6 +289,7 @@ body.cart-open {
     color: #36013f;
     font-size: 1em;
 }
+
 
 #cart-items {
     list-style: none;
