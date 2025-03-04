@@ -1,10 +1,12 @@
+/* styles.css */
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     background-color: #36013f;
-    padding-top: 350px;
+    padding-top: 300px/* Adjust based on navbar height */
     color: #DDBC91;
 }
 
@@ -21,6 +23,7 @@ body {
 .navbar {
     width: 100%;
     background-color: #36013f;
+    border-bottom: 2px solid #5E036E;
     padding: 15px;
     box-sizing: border-box;
     display: flex;
@@ -31,13 +34,15 @@ body {
     z-index: 1000;
 }
 
+/* Adjusted padding-top here */
 body {
-    padding-top: 300px;
+    padding-top:500px/* Adjust this value based on your navbar's height */
 }
 
 .navbar-brand .logo {
-    width: 250px;
-    margin-bottom: 10px;
+    width: 500px;
+    margin-top: -100px;
+    margin-bottom: -50px;
     transition: max-width 0.3s ease-in-out;
 }
 
@@ -194,14 +199,13 @@ h1 {
 }
 
 .btn-box button {
-    padding: 8px 15px;
-    margin: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
     cursor: pointer;
-    background-color: #5E036E;
-    color: #DDBC91;
+    background-color: #DDBC91; /* Changed to #DDBC91 */
+    color: #36013f; /* Changed to #36013f */
     border: none;
     border-radius: 4px;
-    font-size: 1em;
 }
 
 .btn-box button:active {
@@ -313,18 +317,20 @@ body.cart-open {
 }
 
 #cart-items li button {
-    background-color: #5E036E;
-    color: #DDBC91;
+    background-color: #e74c3c;
+    color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 3px 6px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.9em;
-    margin: 0 5px;
+    font-size: 0.7em;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
-#cart-items li button:active {
-    background-color: #720485;
+#cart-items li button:nth-child(2),
+#cart-items li button:nth-child(3) {
+    background-color: #4caf50;
 }
 
 #place-order-btn {
